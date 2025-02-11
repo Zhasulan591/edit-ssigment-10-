@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kazakhstan's First Digital Rehabilitation Center</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <style>
+    @media (max-width: 767.98px) {
+      .navbar-nav .dropdown-menu {
+        background-color: #f8f9fa;
+      }
+      .navbar-nav .dropdown-item {
+        color: #333;
+      }
+    }
+    .class-card {
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      transition: all 0.3s ease;
+    }
+    .class-card:hover {
+      background-color: #f8f9fa;
+    }
+    .class-card.booked {
+      background-color: #e6ffe6;
+    }
+    .calendar {
+      margin-top: 20px;
+    }
+    @media (min-width: 768px) and (max-width: 991.98px) {
+      .navbar-nav .dropdown-menu {
+        background-color: #f8f9fa;
+      }
+      .navbar-nav .dropdown-item {
+        color: #333;
+      }
+    }
+
+    @media (min-width: 992px) {
+      .navbar-nav .dropdown-menu {
+        background-color: #007bff;
+      }
+      .navbar-nav .dropdown-item {
+        color: #fff;
+      }
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .progress {
+      height: 30px;
+      margin-top: 20px;
+    }
+    .progress-bar {
+      font-size: 16px;
+      font-weight: bold;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    h1, h2, h3 {
+      font-weight: 700;
+    }
+
+    .landing-page {
+      padding: 100px 0;
+      background-image: url('navbar.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .landing-page .container {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .about-us, .services, .technology, .contact, .success-stories {
+      padding: 50px 0;
+    }
+
+    .card {
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .accordion-button:focus {
+      box-shadow: none;
+    }
+
+    .carousel-item img {
+      height: 500px;
+      object-fit: cover;
+    }
+
+    .carousel-caption {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .testimonial-carousel .carousel-item {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .testimonial-carousel img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+
+    .testimonial-carousel h5 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .testimonial-carousel p {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .footer {
+      margin-top: 50px;
+      background-color: #343a40;
+      color: #fff;
+      padding: 20px 0;
+    }
+
+    .social-icons a {
+      color: #fff;
+      margin: 0 10px;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #007bff;
+    }
+
+    .newsletter-form {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .newsletter-form .form-control {
+      border-radius: 0;
+    }
+
+    .newsletter-form .btn {
+      border-radius: 0;
+    }
+    .book-consultation {
+  background-color: #f8f9fa;
+  padding: 50px 0;
+}
+
+.book-consultation h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 15px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+    th {
+      background-color: #f8f9fa;
+    }
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+    .highlight {
+      background-color: #e6ffe6;
+    }
+    .program-option {
+      cursor: pointer;
+      padding: 10px 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin: 5px;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+    .program-option.active {
+      background-color: #007bff;
+      color: white;
+    }
+    .question {
+            margin-bottom: 15px;
+        }
+        .result {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+        }
+.book-consultation p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 40px;
+}
+.forum {
+            margin-top: 30px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f0f0f0;
+        }
+        .category {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+        }
+.book-consultation .form-control {
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.book-consultation .btn-primary {
+  background-color: #007bff;
+  border: none;
+  padding: 10px 30px;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+.time-slot {
+      display: inline-block;
+      margin: 5px;
+      padding: 10px 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .time-slot.booked {
+      background-color: #ffcccc;
+      cursor: not-allowed;
+    }
+    .time-slot.available:hover {
+      background-color: #e6ffe6;
+    }
+    .time-slot.selected {
+      background-color: #b3ffb3;
+    }
+.book-consultation .btn-primary:hover {
+  background-color: #0056b3;
+}
+.container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .doctor-list {
+      margin-top: 20px;
+    }
+    .doctor-card {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      transition: all 0.3s ease;
+    }
+    .doctor-card.hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+ 
+  </section>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+    <div id ="service" class="container-fluid">
+      <a class="navbar-brand" href="#">Digital Rehab Center</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#services" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Services
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#services">Post-Operative Rehabilitation</a></li>
+              <li><a class="dropdown-item" href="#services">Sports Injury Recovery</a></li>
+              <li><a class="dropdown-item" href="#services">Preventive Health</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#technology">Technology</a></li>
+          <li class="nav-item"><a class="nav-link" href="#success-stories">Success Stories</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+        <div class="text-center">
+          <button id="colorChangeing" type="submit" class="btn btn-primary" style="color: black;" onclick="return changeColor()">Light</button>
+        </div>
+        
+        <form class="d-flex">
+          <input id="srcForSearch" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" >
+          <button id="btn">Search</button>
+        </form>
+        <form class="d-flex">
+          <input placeholder="Find a doctor" id="searchDoc" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" >
+          <button id="btn1">Search Doc</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <h2 class="text-center mb-4">Calories Burned Calculator</h2>
+    <form id="caloriesForm">
+      <div class="mb-3">
+        <label for="distance" class="form-label">Distance Walked (in kilometers)</label>
+        <input type="number" class="form-control" id="distance" placeholder="Enter distance walked" required>
+      </div>
+      <div class="mb-3">
+        <label for="food" class="form-label">Food Consumed</label>
+        <select class="form-control" id="food" required>
+          <option value="">-- Select Food --</option>
+          <option value="burger">Burger (300 calories)</option>
+          <option value="pizza">Pizza (500 calories)</option>
+          <option value="vegetables">Vegetables (100 calories)</option>
+          <option value="chocolate">Chocolate (200 calories)</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Calculate</button>
+    </form>
+
+    <div class="mt-4">
+      <h4>Results:</h4>
+      <p id="caloriesBurned"></p>
+      <p id="walkingRequired"></p>
+      <div class="progress">
+        <div id="progressBar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+      </div>
+    </div>
+  </div>
+  <section id="home" class="landing-page">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <h1>Kazakhstan's First Digital Rehabilitation Center</h1>
+          <p class="lead">Partnered with leading global rehabilitation centers.</p>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#appointmentModal">Book a Consultation</button>
+          <button class="btn btn-outline-light">Explore Our Technology</button>
+        </div>
+        <div class="col-md-6">
+          <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="run.jpg" class="d-block w-100" alt="Rehabilitation Center 1">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>State-of-the-Art Facilities</h5>
+                  <p>Our center is equipped with the latest technology for rehabilitation.</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="granny.jpg" class="d-block w-100" alt="Rehabilitation Center 2">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Personalized Care</h5>
+                  <p>We tailor our programs to meet the unique needs of each patient.</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="pro.jpg" class="d-block w-100" alt="Rehabilitation Center 3">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Expert Team</h5>
+                  <p>Our team of professionals is dedicated to your recovery.</p>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about-us">
+    <div class="container">
+        <h2>About Us</h2>
+        <p>We are pioneers in digital rehabilitation, combining innovation and care to help patients recover faster.</p>
+        <div class="accordion" id="aboutAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Our Mission
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#aboutAccordion">
+                    <div class="accordion-body">
+                        Our mission is to revolutionize healthcare through innovative digital rehabilitation technology, enhancing recovery processes and providing personalized care for every patient.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Our Vision
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#aboutAccordion">
+                    <div class="accordion-body">
+                        Our vision is to lead the world in digital rehabilitation by pioneering advanced technologies that optimize recovery, aiming for global accessibility and affordability by 2030.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container">
+  <h2 class="text-center mb-4">Doctor Search Filter</h2>
+  <form class="d-flex mb-3">
+    <input placeholder="Find a doctor" id="searchDoc" class="form-control me-2" type="search" placeholder="Search by last name" aria-label="Search">
+    <button id="btn1" type="button" class="btn btn-primary">Search Doc</button>
+  </form>
+  <div class="mb-3">
+    <label for="specialization" class="form-label">Specialization</label>
+    <select class="form-control" id="specialization">
+      <option value="">All Specializations</option>
+      <option value="orthopedics">Orthopedics</option>
+      <option value="neurology">Neurology</option>
+      <option value="cardiology">Cardiology</option>
+    </select>
+  </div>
+  <div class="doctor-list">
+    <!-- Doctor cards will be dynamically inserted here -->
+  </div>
+</div>
+<div class="container">
+  <h2 class="text-center mb-4">Registration Form</h2>
+  <form id="registrationForm">
+    <!-- Name Field -->
+    <div class="mb-3">
+      <label for="name" class="form-label">Full Name</label>
+      <input type="text" class="form-control" id="name" name="name" placeholder="Enter your full name" required>
+      <div id="nameError" class="error-message"></div>
+    </div>
+
+    <!-- Email Field -->
+    <div class="mb-3">
+      <label for="email" class="form-label">Email Address</label>
+      <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+      <div id="emailError" class="error-message"></div>
+    </div>
+
+    <!-- Password Field -->
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+      <div id="passwordError" class="error-message"></div>
+    </div>
+
+    <!-- Phone Number Field -->
+    <div class="mb-3">
+      <label for="phone" class="form-label">Phone Number</label>
+      <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter your phone number" required>
+      <div id="phoneError" class="error-message"></div>
+    </div>
+
+    <!-- Date of Birth Field -->
+    <div class="mb-3">
+      <label for="dob" class="form-label">Date of Birth</label>
+      <input type="date" class="form-control" id="dob" name="dob" required>
+      <div id="dobError" class="error-message"></div>
+    </div>
+
+    <!-- Error Type Dropdown -->
+    <div class="mb-3">
+      <label for="errorType" class="form-label">Select Error Type</label>
+      <select class="form-control" id="errorType" name="errorType">
+        <option value="">-- Select Error Type --</option>
+        <option value="phone">Incorrect Phone Format</option>
+        <option value="password">Weak Password</option>
+        <option value="email">Email Already Taken</option>
+        <option value="dob">Invalid Date of Birth</option>
+      </select>
+      <div id="errorTypeError" class="error-message"></div>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary w-100">Register</button>
+  </form>
+</div>
+  <section id="services" class="services">
+    <div class="container">
+      <h2>Our Services</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <img src="post-reb.jpg" class="card-img-top" alt="Post-Operative Rehabilitation">
+            <div class="card-body">
+              <h5 class="card-title">Post-Operative Rehabilitation</h5>
+              <p class="card-text">Specialized programs for orthopedics, neurology, and cardiology.</p>
+              <a href="#" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Learn more about post-operative rehab">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="sport.jpg" class="card-img-top" alt="Sports Injury Recovery">
+            <div class="card-body">
+              <h5 class="card-title">Sports Injury Recovery</h5>
+              <p class="card-text">Tailored plans for hockey, tennis, and other sports.</p>
+              <a href="#" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Learn more about sports injury recovery">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="preventive-health.jpg" class="card-img-top" alt="Preventive Health">
+            <div class="card-body">
+              <h5 class="card-title">Preventive Health</h5>
+              <p class="card-text">Programs for office workers and seniors.</p>
+              <a href="#" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Learn more about preventive health">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <button onclick="d()">Open WinIDE</button>
+  <button onclick="openSymptomChecker()">Open WinIDE</button>
+  <button onclick="openDoctorSearch()">Open WinIDE</button>
+
+  <section id="technology" class="technology">
+    <div class="container">
+      <h2>Technology & Innovation</h2>
+      <p>We use IoT devices, wearables, and VR/AR technologies to enhance rehabilitation.</p>
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="success-stories" class="success-stories">
+    <div class="container">
+      <h2>Success Stories</h2>
+      <div id="testimonialCarousel" class="carousel slide testimonial-carousel" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="man.jpg" alt="Patient 1">
+            <h5>John Doe</h5>
+            <p>"The digital rehabilitation program helped me recover from my knee surgery faster than I expected. Highly recommended!"</p>
+          </div>
+          <div class="carousel-item">
+            <img src="man2.jpg" alt="Patient 2">
+            <h5>Jane Smith</h5>
+            <p>"I was able to return to my favorite sport after recovering from a severe injury. Thank you, Digital Rehab Center!"</p>
+          </div>
+          <div class="carousel-item">
+            <img src="man3.jpg" alt="Patient 3">
+            <h5>Michael Johnson</h5>
+            <p>"The VR therapy sessions were amazing. They made my recovery process enjoyable and effective."</p>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </section>
+  <div class="container">
+    <h2 class="text-center mb-4">Schedule Consultation Appointments</h2>
+    <form id="appointmentForm">
+      <!-- Doctor Selection -->
+      <div class="mb-3">
+        <label for="doctor" class="form-label">Select Doctor</label>
+        <select class="form-control" id="doctor" required>
+          <option value="">-- Select Doctor --</option>
+          <option value="dr_john">Dr. John Doe</option>
+          <option value="dr_jane">Dr. Jane Smith</option>
+          <option value="dr_michael">Dr. Michael Johnson</option>
+        </select>
+      </div>
+
+      <!-- Date Selection -->
+      <div class="mb-3">
+        <label for="date" class="form-label">Select Date</label>
+        <input type="date" class="form-control" id="date" required>
+      </div>
+
+      <!-- Time Slots -->
+      <div class="mb-3">
+        <label class="form-label">Available Time Slots</label>
+        <div id="timeSlots"></div>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary w-100">Book Appointment</button>
+    </form>
+  </div>
+  <div class="container">
+    <h2 class="text-center mb-4">Rehabilitation Programs Comparison</h2>
+    <div class="text-center mb-4">
+      <div class="program-option active" data-program="standard">Standard</div>
+      <div class="program-option" data-program="premium">Premium</div>
+      <div class="program-option" data-program="vip">VIP</div>
+    </div>
+    <table id="comparisonTable">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Standard</th>
+          <th>Premium</th>
+          <th>VIP</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Duration</td>
+          <td>4 Weeks</td>
+          <td>6 Weeks</td>
+          <td>8 Weeks</td>
+        </tr>
+        <tr>
+          <td>Personal Trainer</td>
+          <td>No</td>
+          <td>Yes</td>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <td>Nutrition Plan</td>
+          <td>Basic</td>
+          <td>Advanced</td>
+          <td>Custom</td>
+        </tr>
+        <tr>
+          <td>Physiotherapy Sessions</td>
+          <td>2 per week</td>
+          <td>3 per week</td>
+          <td>5 per week</td>
+        </tr>
+        <tr>
+          <td>Price</td>
+          <td>$500</td>
+          <td>$800</td>
+          <td>$1200</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="container">
+    <h2 class="text-center mb-4">Virtual Fitness Class Scheduler</h2>
+    <div class="mb-3">
+      <label for="classType" class="form-label">Select Class Type</label>
+      <select class="form-control" id="classType">
+        <option value="">-- Select Class Type --</option>
+        <option value="yoga">Yoga</option>
+        <option value="pilates">Pilates</option>
+        <option value="hiit">HIIT</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="classDate" class="form-label">Select Date</label>
+      <input type="date" class="form-control" id="classDate">
+    </div>
+    <div id="classList" class="mb-3">
+      <!-- Class cards will be dynamically inserted here -->
+    </div>
+    <div class="calendar">
+      <h4>Your Booked Classes</h4>
+      <ul id="bookedClasses"></ul>
+    </div>
+  </div>
+  <h2>Interactive Symptom Checker</h2>
+    <form id="symptomChecker">
+        <div class="question">
+            <label>Do you have a fever?</label>
+            <select id="fever">
+                <option value="no">No</option>
+                <option value="mild">Mild</option>
+                <option value="high">High</option>
+            </select>
+        </div>
+        <div class="question">
+            <label>Do you have a cough?</label>
+            <select id="cough">
+                <option value="no">No</option>
+                <option value="dry">Dry</option>
+                <option value="wet">Wet</option>
+            </select>
+        </div>
+        <div class="question">
+            <label>Are you experiencing fatigue?</label>
+            <select id="fatigue">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+        </div>
+        <button type="button" id="checkSymptoms">Check Symptoms</button>
+    </form>
+    <div class="result" id="resultBox"></div>
+
+  
+  <section id="contact" class="contact">
+    <form id="contactForm" name="myForm" onsubmit="return validateForm()" method="post">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input name="fname" type="text" class="form-control" id="name">
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input name="fname1" type="email" class="form-control" id="email">
+      </div>
+      <div class="mb-3">
+        <label for="phone" class="form-label">Phone Number</label>
+        <input name="phone" type="tel" class="form-control" id="phone">
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Message</label>
+        <textarea name="fname3" class="form-control" id="message" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </section>
+  <section id="blog" class="blog">
+    <div class="container">
+      <h2>Blog & News</h2>
+      <p>Stay updated with the latest news and tips on rehabilitation and health.</p>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <img src="tay updated with the latest news and tips on rehabilitation and health..jpg" class="card-img-top" alt="5 Steps to Recover Faster Post-Surgery">
+            <div class="card-body">
+              <h5 class="card-title">5 Steps to Recover Faster Post-Surgery</h5>
+              <p class="card-text">Discover effective strategies to speed up your recovery after surgery with these 5 proven steps.</p>
+              <a href="5 Steps to Recover Faster Post-Surgery.html" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="good food.jpg" class="card-img-top" alt="The Role of Nutrition in Rehabilitation">
+            <div class="card-body">
+              <h5 class="card-title">The Role of Nutrition in Rehabilitation</h5>
+              <p class="card-text">Learn how proper nutrition can accelerate your recovery and improve overall health.</p>
+              <a href="The Role of Nutrition in Rehabilitation.html" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="tech.jpg" class="card-img-top" alt="How Technology is Transforming Rehabilitation">
+            <div class="card-body">
+              <h5 class="card-title">How Technology is Transforming Rehabilitation</h5>
+              <p class="card-text">Explore the latest advancements in technology that are revolutionizing the rehabilitation process.</p>
+              <a href="How Technology is Transforming Rehabilitation.html" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="appointmentModal" class="book-consultation bg-light py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Book a Consultation</h2>
+      <p class="text-center mb-5">Schedule an appointment with our experts to discuss your rehabilitation needs.</p>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <form>
+            <div class="mb-3">
+              <label for="fullName" class="form-label">Full Name</label>
+              <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" required>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email Address</label>
+              <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Phone Number</label>
+              <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number" required>
+            </div>
+            <div class="mb-3">
+              <label for="date" class="form-label">Preferred Date</label>
+              <input type="date" class="form-control" id="date" required>
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Additional Message</label>
+              <textarea class="form-control" id="message" rows="4" placeholder="Any specific requirements or questions"></textarea>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+</section>
+<div class="container mt-5">
+  <h2>Subscription Form</h2>
+  <form name="myForm" onsubmit="return calculateCost()" method="post">
+      <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input name="name" type="text" class="form-control" id="name" required>
+      </div>
+      <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input name="email" type="email" class="form-control" id="email" required>
+      </div>
+      <div class="mb-3">
+          <label for="months" class="form-label">Number of Months</label>
+          <input name="months" type="number" class="form-control" id="months" min="1" required>
+      </div>
+      <div class="mb-3">
+          <label for="status" class="form-label">Subscription Type</label>
+          <select name="status" class="form-control" id="status" required>
+              <option value="normal">Normal</option>
+              <option value="vip">VIP</option>
+          </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Calculate & Save</button>
+  </form>
+
+  <h3 class="mt-3" id="result"></h3>
+  <img src="with us.jpg" onmouseover="mOver(this)" onmouseout="mOut(this)">
+  <h2 class="mt-5">Stored Subscriptions</h2>
+  <table class="table table-bordered mt-3">
+      <thead>
+          <tr>
+              <th>ID</th>
+              <th>Months</th>
+              <th>Subscription Type</th>
+              <th>Total Cost ($)</th>
+          </tr>
+      </thead>
+      <tbody id="data-table-body">
+      </tbody>
+  </table>
+  <form>
+    <label for="sicks">Выберите вашу болезнь:</label>
+    <select id="sicks" name="sicks" onchange="loadImage()">
+        <option value="">--Select--</option>
+        <option value="spid">SPID</option>
+        <option value="cancer">Cancer</option>
+        <option value="diabet">Diabetes</option>
+    </select>
+</form>
+<img id="sickImage" src="" alt="Selected illness" style="width:200px; height:auto; margin-top:10px;">
+<ul id="list"></ul>
+</div>
+  <footer class="footer bg-dark text-white text-center py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="#home" class="text-white">Home</a></li>
+            <li><a href="#about" class="text-white">About Us</a></li>
+            <li><a href="#services" class="text-white">Services</a></li>
+            <li><a href="#contact" class="text-white">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Contact Us</h5>
+          <p>Email: aidoszhasulan155@gmail.com</p>
+          <p>Phone: +7 702 673 12 38</p>
+        </div>
+        <div class="col-md-4">
+          <h5>Follow Us</h5>
+          <a href="https://www.facebook.com/?locale=ru_RU" class="text-white me-2">
+              <i class="bi bi-facebook" style="font-size: 1.5rem;"></i> Facebook
+          </a>
+          <a href="https://www.instagram.com/" class="text-white me-2">
+              <i class="bi bi-instagram" style="font-size: 1.5rem;"></i> Instagram
+          </a>
+          <a href="https://ru.linkedin.com/" class="text-white">
+              <i class="bi bi-linkedin" style="font-size: 1.5rem;"></i> LinkedIn
+          </a>
+      </div>
+      </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-12">
+          <p>&copy; 2025 Digital Rehab Center. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script
+  src="https://code.jquery.com/jquery-2.2.4.js"
+  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+  crossorigin="anonymous"></script>
+  <script src="java script .js" >
+
+  </script>
